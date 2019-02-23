@@ -10,6 +10,24 @@ public class GenericItem {
   public Category category = Category.GENERAL;
   public GenericItem analogue; // Аналог предмета
 
+  public GenericItem(String name, double price, Category category) {
+    this.ID = GenericItem.IDs++;
+    this.name = name;
+    this.price = price;
+    this.category = category;
+  }
+
+  public GenericItem(String name, double price, GenericItem analogue) {
+    this.ID = GenericItem.IDs++;
+    this.name = name;
+    this.price = price;
+    this.analogue = analogue;
+  }
+
+  public GenericItem() {
+    this.ID = GenericItem.IDs++;
+  }
+
   void printAll() {
     System.out.printf("ID: %d , Category: %s , Name: %-20s , Price: $%5.2f \n ", ID, category, name,
         price);
