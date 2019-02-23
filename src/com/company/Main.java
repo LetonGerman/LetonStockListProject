@@ -5,6 +5,11 @@ import java.util.Calendar;
 public class Main {
 
   public static void main(String[] args) {
+
+    String line = "Конфеты 'Маска'; 45; 120";
+    String[] itemfld;
+    itemfld = new String[3];
+
     GenericItem item1 = new GenericItem();
     item1.ID = ++GenericItem.IDs;
     item1.name = "Steins;Gate";
@@ -52,5 +57,14 @@ public class Main {
 
     item2 = item1;
     System.out.print(item1.equals(item2));
+
+    itemfld = line.split(";");
+    for (String s : itemfld) {
+      System.out.println(s);
+    }
+
+    FoodItem candy = new FoodItem(itemfld[0], Double.valueOf(itemfld[1].trim()),
+        Short.valueOf(itemfld[2].trim()));
+    candy.printAll();
   }
 }
